@@ -54,12 +54,12 @@ export default function BookingForm({
         setFormData(updatedFormData);
 
         // Send booking data to the bookings endpoint
-        await axios.post("http://localhost:3001/api/slots/bookings", updatedFormData);
+        await axios.post("https://intern-itvb.onrender.com/api/slots/bookings", updatedFormData);
 
         // Update slot status to 'reserved'
         const updatedSlot = { ...selectedSlot, status: "reserved" };
         await axios.put(
-          `http://localhost:3001/api/slots/${selectedSlot.id}`,
+          `http://https://intern-itvb.onrender.com/api/slots/${selectedSlot.id}`,
           updatedSlot
         );
 
@@ -102,7 +102,7 @@ export default function BookingForm({
     }
 
     try {
-      const res = await axios.get("http://localhost:3001/api/slots");
+      const res = await axios.get("http://https://intern-itvb.onrender.com/api/slots");
       const result = res.data.filter(
         (slot) =>
           slot.date === formData.date &&
